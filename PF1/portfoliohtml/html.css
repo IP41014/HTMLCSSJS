@@ -5,25 +5,41 @@ body {
     text-align: center;
   }
   
-  .box {
-    width: 40%;
-    height: 200px;
-    background: orange;
-    border-radius: 2px;
-    padding: 10px;
-    color: white;
-    text-align: center;
-  }
-  
-  .a {
-    margin: 100vh auto 0 auto;
-  }
-  
-  .b {
-    margin: 40vh auto 0 auto;
-  }
 
-  html {
+html {
     background-color: lightcyan;
-  }
-  
+}
+
+p1 {
+  color: white;
+}
+
+h1 {
+    color: white;
+}
+div .text span {
+    padding: 2px;
+    display: inline-block;
+}
+div .text span.active {
+    animation: smoke 5s linear forwards;
+    transform-origin: bottom;
+}
+
+
+@keyframes smoke {
+    0% {
+        pointer-events: none;
+        opacity: 1;
+        z-index: -1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+        visibility: hidden;
+        filter: blur(20px);
+        transform: translateX(100px) translateY(-300px) rotate(720deg) scale(6);
+    }
+}

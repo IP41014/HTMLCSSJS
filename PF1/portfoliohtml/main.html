@@ -7,25 +7,134 @@
     <link href="html.css" rel="stylesheet" type="text/css"/>
 
     
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.0.7/fullpage.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.0.7/fullpage.js"></script>
 
-    <title>Life in Korea</title>
+    <title>My life diary</title>
 </head>
 <body>
-    <h1>Title</h1>
-    <h2>SubTitle</h2>
-    <p>You need to scroll down to see the effect.</p>
+    <div id="fullpage">
+        <div class="section">
+        <img src="isaac1.png" height="120" width="350"/>
+        </div>
+        <div class="section">
+            <div class="slide" data-anchor="slide1">
+                <p class = text>Childhood in Korea</p>
+            </div>
+        </div>
+        <div class="section">
+            <img alt="" src="young.JPG" width="400" />
+            <img alt="" src="young1.JPG" width="400" />
+            <img alt="" src="young2.JPG" width="400" />
+                <p>Childhood in Korea</p>
+        </div>
+        <div class="section">
+            <p class = eff>When I was in New Zealand</p>
+        </div>
+        <div class="section">
+            <div class="slide" data-anchor="slide1">
+                <img alt="" src="band2.JPG" width="400" />
+                <p>B A N D with a mask on</p>
+            </div>
+            <div class="slide" data-anchor="slide2">
+                <img alt="" src="band1.JPG" width="400" />
+                <p class = text>B A N D</p>
+            </div>
+            <div class="slide" data-anchor="slide3">
+                <img alt="" src="band3.JPG" width="1000" />
+                <p class = text>B A N D</p>
+            </div>
+        </div>
+        <div class="section">
+            <div class="slide" data-anchor="slide1">
+                <img alt="" src="krnight2.JPG" width="1000" />
+                <p>Living as Korean in New Zealand</p>
+            </div>
+            <div class="slide" data-anchor="slide2">
+                <img alt="" src="krnight.JPG" width="1000" />
+                <p class = text>After Party</p>
+            </div>
+            <div class="slide" data-anchor="slide3">
+                <img alt="" src="krnight3.JPG" width="400" />
+                <p class = text>After Party2</p>
+            </div>
+        </div>
+        
+        <div class="section">
+            <video  src="jaypark.mp4" width="1000" controls>대체텍스트</video>
+            <p>JAY PARK CONCERT</p>
+        </div>
+        <div class="section">
+            <img alt="" src="huchu1.JPG" width="400" />
+            <img alt="" src="huchu2.JPG" width="400" />
+            <img alt="" src="huchu3.JPG" width="400" />
+            <p>HooChu Park</p>
+        </div>
+        <div class="section">
+            <img alt="" src="sky1.JPG" width="400" />
+            <img alt="" src="sky2.JPG" width="400" />
+            <p color = 'white'>When I look up in the sky</p>
+        </div>
+        <div class="section">
+            <img alt="" src="ADULTPARTY.jpg" width="700" />
+            <p>ADULT 18 Party</p>
+        </div>
 
+        <div class="section">
+
+            <div class="slide" data-anchor="slide1">
+                <img alt="" src="fullpage.png" width="800" />
+                <h2>만들었던 과정 밑 PPT</h2>
+            </div>
+            <div class="slide" data-anchor="slide2">
+                <img alt="" src="ppt.png" width="600" />
+                <img alt="" src="html.jpeg" width="600" />
+                <h2>컨셉: PPT를 HTML로 만들어보자</h2>
+            </div>
+            <div class="slide" data-anchor="slide3">
+                <img alt="" src="헤더.png" width="800" />
+                <h2>헤더 paragraph</h2>
+                <p>바닐라 보다는 CDN 서버에서 불러오는 방식</p>
+            </div>
+            <div class="slide" data-anchor="slide4">
+                <img alt="" src="바디.png" width="400" />
+                <h2>바디 paragraph</h2>
+            </div>
+            <div class="slide" data-anchor="slide4">
+                <img alt="" src="CSS1.png" width="380" />
+                <h2>CSS 과정</h2>
+            </div>
+            <div class="slide" data-anchor="slide4">
+                <img alt="" src="CSS2.png" width="600" />
+            </div>
+            <div class="slide" data-anchor="slide4">
+                <img alt="" src="자바스크립트.png" width="1000" />
+                <h2>fullpage.js 자바스크립트</h2>
+            </div>
+        </div>
+        <div class="section">
+            <h1>fullpage.js를 이용한 PPT 형식 HTML 웹사이트</h1>
+        </div>
+        
+    </div>
     
-    <div class = "aa" data-aos="fade-up"></div>
-    <div class="box a" data-aos="fade-up">
-    <h2>Animated using <code>fade-up</code>.</h2></div>
-    <div class="box b" data-aos="flip-down"><h2>7th April 2013<code>New Zealand</code>.</h2></div>
-    <div class="box b" data-aos="zoom-in"><h2>21st July 2022<code>South Korea</code>.</h2></div>
 
     <script>
-    AOS.init();
+        new fullpage('#fullpage', {
+            autoScrolling:true,
+            scrollHorizontally: true,
+            sectionsColor: ['white', '#F6FFA1', '#CAFFE3', '#ADD8E6','#CCCCFF','#CCCCFF'
+            ,'lightcyan' , 'lightcyan' , 'black', '#FADBD8' , 'lightcyan', 'black'],
+        });
+
+        const text = document.querySelector("div .text");
+        text.innerHTML = text.textContent.replace(/\S/g, "<span>$&</span>");
+        document.querySelectorAll("div .text span").forEach((letter) => {
+        letter.addEventListener("mouseover", () => {
+        letter.classList.add("active");
+        });
+        });
+
     </script>
 </body>
 </html>
